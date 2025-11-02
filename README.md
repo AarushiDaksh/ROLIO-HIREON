@@ -1,43 +1,138 @@
+# ROLIO-HIREON
 
-<img width="935" alt="image" src="https://github.com/user-attachments/assets/bfe23361-1a05-4d89-bff1-83b6c9da9319" />
+A scalable and feature-rich hiring and networking platform built with **Next.js**, **TypeScript**, and **NextAuth**, integrating real-time posts, user authentication, and a social feed system for professionals and recruiters.
 
+---
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 1. Overview
 
-## Getting Started
+**ROLIO-HIREON** enables recruiters and job seekers to connect, share updates, and manage opportunities in one place.  
+The platform merges the familiarity of a social media feed with hiring features such as post creation, likes, comments, and secure authentication.
 
-First, run the development server
+---
+
+## 2. Tech Stack
+
+| Layer | Technologies Used |
+|--------|--------------------|
+| **Frontend** | Next.js 15, TypeScript, Tailwind CSS, ShadCN/UI |
+| **Backend** | Next.js App Router APIs, Node.js, Express-like handlers |
+| **Database** | MongoDB (via Mongoose ORM) |
+| **Authentication** | NextAuth (Credentials Provider) |
+| **Security** | bcrypt.js password hashing, JWT sessions |
+| **Deployment** | Vercel (Frontend & API) |
+| **Version Control** | Git + GitHub |
+
+---
+
+## 3. Features
+
+| Category | Description |
+|-----------|-------------|
+| **Authentication** | Secure login and signup using email/password (NextAuth + JWT) |
+| **User Profile** | Editable profiles with avatar and professional title |
+| **Feed System** | Create, like, comment, and share posts in real-time |
+| **Image Uploads** | Upload profile and post images securely |
+| **Responsive UI** | Optimized for desktop and mobile views |
+| **Dark Mode** | Adaptive UI using Tailwind’s dark mode |
+| **CORS Config** | Supports multiple origins for API integration |
+
+---
+
+## 4. Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ROLIO-HIREON/
+├── src/
+│   ├── app/                # Next.js App Router routes
+│   │   ├── api/            # Backend APIs (auth, posts, likes, comments)
+│   │   ├── (feed)/         # Feed pages
+│   │   ├── login/          # User login & authentication pages
+│   │   └── profile/        # User profiles
+│   ├── components/         # UI Components (PostCard, CreatePost, etc.)
+│   ├── models/             # MongoDB models (User, Post, Comment)
+│   ├── utils/              # Utility functions & DB connection
+│   └── auth.ts             # NextAuth configuration (v5 syntax)
+├── public/                 # Static assets (images, icons)
+├── .env.local              # Environment variables
+├── package.json
+├── next.config.js
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 5. Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|-----------|-------------|
+| `MONGODB_URI` | Connection string for MongoDB |
+| `NEXTAUTH_SECRET` | Secret key for JWT session encryption |
+| `NEXTAUTH_URL` | Base URL of your deployed app |
+| `CLOUDINARY_URL` | (Optional) For image upload storage |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 6. Installation & Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone the repository
+git clone https://github.com/AarushiDaksh/ROLIO-HIREON.git
+cd ROLIO-HIREON
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Set environment variables
+cp .env.example .env.local
+# (then fill in your keys)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Run development server
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# StuGig
+# Build for production
+npm run build
+npm start
+```
 
+---
+
+## 7. API Endpoints
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| **POST** | `/api/auth/[...nextauth]` | User login/signup (NextAuth) |
+| **POST** | `/api/posts` | Create a new post |
+| **GET** | `/api/posts` | Fetch all posts |
+| **POST** | `/api/posts/[id]/like` | Like a post |
+| **DELETE** | `/api/posts/[id]/like` | Unlike a post |
+| **POST** | `/api/posts/[id]/comment` | Add a comment |
+| **GET** | `/api/profile` | Fetch logged-in user data |
+
+---
+
+## 8. Deployment
+
+1. Push code to **GitHub**.
+2. Connect repository to **Vercel**.
+3. Add environment variables under *Project → Settings → Environment Variables*.
+4. Deploy.
+
+---
+
+## 9. Future Enhancements
+
+| Area | Planned Improvement |
+|------|----------------------|
+| **Real-Time Updates** | WebSocket integration for live notifications |
+| **Recruiter Tools** | Job post creation, candidate search, analytics |
+| **AI Suggestions** | Smart profile recommendations |
+| **Performance** | Redis caching for faster feed rendering |
+
+---
+## 10. Author
+
+**Aarushi Daksh**  
+Developer | 
+[GitHub Profile](https://github.com/AarushiDaksh)  |
+[Portfolio](https://www.aarushi.cloud/)
