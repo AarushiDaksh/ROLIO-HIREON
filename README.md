@@ -136,3 +136,6 @@ npm start
 Developer | 
 [GitHub Profile](https://github.com/AarushiDaksh)  |
 [Portfolio](https://www.aarushi.cloud/)
+
+---
+If you like this project, give it a star! ⭐
